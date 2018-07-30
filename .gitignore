@@ -24,4 +24,5 @@
 /nbdist/
 /.nb-gradle/
 
+### Este projeto ja esta e um repositorio no git, por isso esta no git ignore ###
 digital-account-config-repo/
