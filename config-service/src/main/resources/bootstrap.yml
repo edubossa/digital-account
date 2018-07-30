@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/edubossa/digital-account-config-repo.git
+          #uri: file:///C:/Apps/digital-account/spring-cloud-config
+
+server:
+  port: 8888

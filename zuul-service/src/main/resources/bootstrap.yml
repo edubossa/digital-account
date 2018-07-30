@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: zuul-service
+  cloud:
+    config:
+      uri: http://${SPRING_CONFIG_URI:localhost:8888}
+
+server:
+  port: 9999
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${SPRING_EUREKA_SERVER:localhost:8761}/eureka/
+
+zuul:
+  prefix: /api
+  routes:
+    account-ms:
+      path: /accounts/**
+      serviceId: account-ms
+      stripPrefix: false
+    feing-demo:
+      path: /feign/**
+      serviceId: feign-demo
+      stripPrefix: false
+#    notifications:
+#      path: /notifications/**
+#      serviceId: api-notification
+#      stripPrefix: false
+#    catalogs:
+#      path: /catalogs/**
+#      serviceId: api-store
+#      stripPrefix: false
+
+management:
+  endpoint:
+    beans:
+      enabled: false
+    env:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
